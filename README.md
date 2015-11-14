@@ -13,6 +13,11 @@ $ npm install observ-transform
 
 ```js
 var Transform = require('observ-transform')
+
+// helpers
+var connect = require('observ-transform/connect')
+var send = require('observ-transform/send')
+var when = require('observ-transform/when')
 ```
 
 ### `var transform = Transform(func, args)`
@@ -39,7 +44,7 @@ Return current input value.
 
 ## Example
 
-## Using String Args
+### Using String Args
 
 ```js
 var Transform = require('observ-transform')
@@ -52,7 +57,7 @@ obs.set(100)
 t.same(obs(), 324)
 ```
 
-## Using Object Args
+### Using Object Args
 
 ```js
 var obs = Transform(function (input, args) {
