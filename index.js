@@ -11,7 +11,6 @@ var blackList = {
 module.exports = Transform
 
 function Transform (func, args) {
-  // TODO: check for special params
   var obs = Observ()
   var set = obs.set
 
@@ -36,8 +35,8 @@ function Transform (func, args) {
   } else if (args instanceof Object) {
     Object.keys(args).forEach(function (key) {
       checkKey(key)
-      obs[key] = args[key]
-      argValues[key] = args[key]()
+      obs[key] = typeof args[key] === 'function' ? args[key] : Observ(args[key])
+      argValues[key] = obs[key]()
       listeners.push(obs[key](function (value) {
         argValues[key] = value
         refresh()
@@ -55,7 +54,10 @@ function Transform (func, args) {
   return obs
 
   function refresh () {
-    set(func(input(), argValues))
+    var newValue = func(input(), argValues)
+    if (obs() !== newValue) {
+      set(newValue)
+    }
   }
 }
 
