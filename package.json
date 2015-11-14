@@ -1,6 +1,6 @@
 {
   "name": "observ-transform",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Observable transform (with args) based on observ-* pattern.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,13 @@
     "type": "git",
     "url": "https://github.com/mmckegg/observ-transform.git"
   },
-  "keywords": ["transform", "observ", "computed", "reactive", "observable"],
+  "keywords": [
+    "transform",
+    "observ",
+    "computed",
+    "reactive",
+    "observable"
+  ],
   "author": "Matt McKegg",
   "license": "MIT",
   "dependencies": {
